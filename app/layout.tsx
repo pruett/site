@@ -43,14 +43,13 @@ export default function RootLayout({
 
 function Footer() {
   const links = [
-    { name: "@leerob", url: "https://x.com/leeerob" },
-    { name: "youtube", url: "https://www.youtube.com/@leerob" },
-    { name: "linkedin", url: "https://www.linkedin.com/in/leeerob" },
-    { name: "github", url: "https://github.com/leerob" },
+    { name: "@pruett", url: "https://x.com/pruett" },
+    { name: "linkedin", url: "https://www.linkedin.com/in/pruett" },
+    { name: "github", url: "https://github.com/pruett" },
   ];
 
   return (
-    <footer className="mt-12 text-center">
+    <footer className="fixed bottom-10 text-center bg-foreground/90 rounded-full left-1/2 -translate-x-1/2 px-3 py-1">
       <div className="flex justify-center space-x-4 tracking-tight">
         {links.map((link) => (
           <a
@@ -70,14 +69,14 @@ function Footer() {
 
 function Header() {
   return (
-    <header className="py-4 border border-bottom p-3 border-dashed">
-      <div className="container mx-auto flex justify-between items-center">
+    <header className="py-4 border border-t-0 border-r-0 border-l-0 p-3 border-dashed">
+      <div className="container mx-auto flex flex-wrap justify-between items-center gap-2">
         <div>
           <h1 className="font-semibold">Kevin Pruett</h1>
-          {/* <h2 className="font-light text-foreground/50">Developer</h2> */}
         </div>
-        <div className="flex flex-col gap-1 items-center">
-          <p className="font-mono uppercase text-sm font-medium tracking-wide">
+
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="uppercase text-sm font-medium tracking-wide">
             {new Date(Date.now()).toLocaleString("en-US", {
               timeZone: "America/Chicago",
               weekday: "long",
@@ -85,13 +84,12 @@ function Header() {
               month: "long",
               day: "numeric",
             })}
-          </p>
-          <div className="flex gap-1 items-center text-foreground/50">
-            <MapPinIcon className="size-2.5" />
-            <span className="font-mono text-xs ">Austin, TX, USA</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <p>&mdash;</p>
+            <p className="text-xs text-foreground/60">Austin, TX USA</p>
           </div>
         </div>
-        <p>contact?</p>
       </div>
     </header>
   );
