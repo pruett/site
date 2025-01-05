@@ -1,21 +1,23 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import { ViewTransitions } from 'next-view-transitions';
-import { Analytics } from '@vercel/analytics/react';
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] });
+import { Analytics } from "@vercel/analytics/react";
+import { MapPinIcon } from "lucide-react";
+import type { Metadata } from "next";
+import { ViewTransitions } from "next-view-transitions";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://leerob.com'),
+  metadataBase: new URL("https://kevinpruett.com"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   title: {
-    default: 'Lee Robinson',
-    template: '%s | Lee Robinson',
+    default: "Kevin Pruett",
+    template: "%s | Kevin Pruett",
   },
-  description: 'Frontend developer, optimist, community builder.',
+  description: "description here",
 };
 
 export default function RootLayout({
@@ -25,12 +27,11 @@ export default function RootLayout({
 }>) {
   return (
     <ViewTransitions>
-      <html lang="en" className={`${inter.className}`}>
+      <html lang="en" className={`${inter.variable} font-sans`}>
         <body className="antialiased tracking-tight">
-          <div className="min-h-screen flex flex-col justify-between pt-0 md:pt-8 p-8 bg-white text-gray-900">
-            <main className="max-w-[60ch] mx-auto w-full space-y-6">
-              {children}
-            </main>
+          <div className="min-h-screen flex flex-col justify-between">
+            <Header />
+            <main>{children}</main>
             <Footer />
             <Analytics />
           </div>
@@ -42,10 +43,10 @@ export default function RootLayout({
 
 function Footer() {
   const links = [
-    { name: '@leerob', url: 'https://x.com/leeerob' },
-    { name: 'youtube', url: 'https://www.youtube.com/@leerob' },
-    { name: 'linkedin', url: 'https://www.linkedin.com/in/leeerob' },
-    { name: 'github', url: 'https://github.com/leerob' },
+    { name: "@leerob", url: "https://x.com/leeerob" },
+    { name: "youtube", url: "https://www.youtube.com/@leerob" },
+    { name: "linkedin", url: "https://www.linkedin.com/in/leeerob" },
+    { name: "github", url: "https://github.com/leerob" },
   ];
 
   return (
@@ -64,5 +65,34 @@ function Footer() {
         ))}
       </div>
     </footer>
+  );
+}
+
+function Header() {
+  return (
+    <header className="py-4 border border-bottom p-3 border-dashed">
+      <div className="container mx-auto flex justify-between items-center">
+        <div>
+          <h1 className="font-semibold">Kevin Pruett</h1>
+          {/* <h2 className="font-light text-foreground/50">Developer</h2> */}
+        </div>
+        <div className="flex flex-col gap-1 items-center">
+          <p className="font-mono uppercase text-sm font-medium tracking-wide">
+            {new Date(Date.now()).toLocaleString("en-US", {
+              timeZone: "America/Chicago",
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
+          <div className="flex gap-1 items-center text-foreground/50">
+            <MapPinIcon className="size-2.5" />
+            <span className="font-mono text-xs ">Austin, TX, USA</span>
+          </div>
+        </div>
+        <p>contact?</p>
+      </div>
+    </header>
   );
 }
