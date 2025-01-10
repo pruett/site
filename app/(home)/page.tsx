@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Subheading from "@/app/subheading";
+import Link from "next/link";
 
 const bullets = [
   "Prioritize simplicity and usability in software design",
@@ -21,17 +22,21 @@ export default function Page() {
       />
       <Section title="About">
         <p className="text-2xl font-semibold">
-          I&rsquo;m a software engineer with extensive experience crafting and
-          building intuitive user interfaces that solve real-world problems.
-          With over a decade of experience leading teams and managing product
-          development, I bring technical expertise and a knack for thoughtful
-          solutions to every project I work on.
+          I&rsquo;m a software engineer who builds web applications that solve
+          real-world problems. With years of leading teams and shaping products,
+          I mix technical chops with creativity to deliver solutions that
+          actually make a difference.
         </p>
         <p className="text-foreground/80 font-medium text-lg">
-          I&rsquo;ve worked across many industries and have tackled enough
-          challenges to know how to navigate complexity with confidence and
-          focus. Getting things done tactfully requires understanding and
-          balancing the tradeoffs involved.
+          From startups to fintech and everything in between &mdash; have a look
+          at{" "}
+          <Link
+            href="/work"
+            className="text-blue-500 hover:text-blue-700 transition-all"
+          >
+            my past experience
+          </Link>
+          .
         </p>
       </Section>
 
