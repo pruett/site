@@ -1,26 +1,26 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { SquareArrowOutUpRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import type { JSX, SVGProps } from "react";
+import { XformerlyTwitter, Github, LinkedIn } from "@/app/socials";
 
 type Link = {
   name: string;
   url: string;
-  external: boolean;
+  icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
 };
 
 export function Island() {
   const links: Link[] = [
-    { name: "resume", url: "/resume", external: false },
-    { name: "twitter", url: "https://x.com/pruett", external: true },
+    { name: "x", url: "https://x.com/pruett", icon: XformerlyTwitter },
+    { name: "github", url: "https://github.com/pruett", icon: Github },
     {
       name: "linkedin",
       url: "https://www.linkedin.com/in/pruett",
-      external: true,
+      icon: LinkedIn,
     },
-    { name: "github", url: "https://github.com/pruett", external: true },
   ];
 
   return (
@@ -41,29 +41,24 @@ export function Island() {
         transition: {
           type: "spring",
           stiffness: 140,
-          damping: 8,
+          damping: 15,
         },
       }}
     >
       <div className="flex justify-center space-x-4 tracking-tight">
         {links.map((link) => {
-          const Comp = link.external ? "a" : Link;
-
           return (
-            <Comp
+            <a
               key={link.name}
               href={link.url}
               className={cn(
-                "hover:text-[rgba(241,90,34)] transition-colors duration-200 text-xs font-light flex gap-1 items-center"
+                "transition-all duration-200 flex gap-1 items-center group"
               )}
-              {...(link.external && {
-                target: "_blank",
-                rel: "noopener noreferrer",
-              })}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {link.name}
-              {link.external && <SquareArrowOutUpRight className="size-2" />}
-            </Comp>
+              <link.icon className="fill-background [&>path]:fill-background group-hover:fill-gray-400 [&>path]:group-hover:fill-gray-400" />
+            </a>
           );
         })}
       </div>
