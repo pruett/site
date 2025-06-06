@@ -1,10 +1,13 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
+
 export default function DownloadResumeButton() {
   return (
-    <button
+    <Button
       onClick={() => window.print()}
-      className="inline-flex items-center px-4 py-2 text-sm font-medium text-foreground bg-muted hover:bg-muted/80 border border-muted-foreground/20 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-muted-foreground/50"
+      variant="outline"
+      className="hover:bg-muted/80 border border-muted-foreground/20"
     >
       <svg
         className="w-4 h-4 mr-2"
@@ -21,6 +24,6 @@ export default function DownloadResumeButton() {
         />
       </svg>
       Download Resume
-    </button>
+    </Button>
   );
 }
