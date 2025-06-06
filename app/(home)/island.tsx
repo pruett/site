@@ -57,7 +57,7 @@ export function Island() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <link.icon className="fill-background [&>path]:fill-background group-hover:fill-gray-400 [&>path]:group-hover:fill-gray-400" />
+              <link.icon className="fill-background [&>path]:fill-background group-hover:fill-gray-400 group-hover:[&>path]:fill-gray-400" />
             </a>
           );
         })}

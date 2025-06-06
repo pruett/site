@@ -73,7 +73,7 @@ export default async function Layout({
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <social.icon className="fill-foreground [&>path]:fill-foreground group-hover:fill-gray-400 [&>path]:group-hover:fill-gray-400" />
+                      <social.icon className="fill-foreground [&>path]:fill-foreground group-hover:fill-gray-400 group-hover:[&>path]:fill-gray-400" />
                     </a>
                   </li>
                 ))}
