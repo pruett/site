@@ -1,4 +1,5 @@
 import Link from "next/link";
+import DateTime from "./date-time.client";
 
 type Link = {
   href: string;
@@ -36,15 +37,7 @@ export default function Header({ links }: { links: Link[] }) {
         </nav>
 
         <div className="flex flex-wrap items-center gap-2">
-          <div className="uppercase text-xs font-medium tracking-wide">
-            {new Date(Date.now()).toLocaleString("en-US", {
-              timeZone: "America/Chicago",
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </div>
+          <DateTime />
           <div className="flex items-center gap-2">
             <p>&mdash;</p>
             <p className="text-xs text-foreground/60">Austin, TX USA</p>

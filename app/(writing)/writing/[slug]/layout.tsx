@@ -26,18 +26,8 @@ export default async function Layout({
   const title = `${metadata.title ?? ""}`;
 
   return (
-    <>
+    <div className="max-w-[60ch] mx-auto w-full">
       <div className="flex flex-col gap-8">
-        {/* <div className="flex flex-col gap-2 justify-center items-center w-[100px]">
-          <Image
-            src="/pro.jpeg"
-            alt="profile picture of kevin pruett"
-            width={100}
-            height={100}
-            className="rounded-full"
-          />
-        </div> */}
-
         <div>
           <h2 className="text-2xl font-bold">{title}</h2>
           <p className="text-sm text-foreground/50">
@@ -46,10 +36,8 @@ export default async function Layout({
         </div>
       </div>
 
-      <main className="max-w-[60ch] space-y-6 mx-auto w-full mt-4">
-        {children}
-      </main>
-      <footer className="border-t border-dotted pt-8">
+      <div className="space-y-6 mt-4">{children}</div>
+      <footer className="border-t border-dotted mt-4 pt-8">
         <div className="flex items-center">
           <div className="flex flex-col gap-2 w-[100px] items-center">
             <Image
@@ -79,7 +67,7 @@ export default async function Layout({
                   <a
                     href={social.href}
                     className={cn(
-                      "transition-all duration-200 flex gap-1 items-center group"
+                      "transition-all duration-200 flex gap-1 items-center group",
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -92,6 +80,6 @@ export default async function Layout({
           </div>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
