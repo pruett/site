@@ -1,7 +1,9 @@
 import "@/app/globals.css";
 
+// import { Island } from "@/app/(home)/island";
 import Header from "@/app/header";
-import { Analytics } from "@vercel/analytics/react";
+// import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -25,26 +27,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen">
-      <Header
-        links={[
-          {
-            href: "/work",
-            label: "Work",
-            active: true,
-          },
-          {
-            href: "/writings",
-            label: "Writings",
-          },
-        ]}
-      />
-      <main>
-        <div className="container mx-auto md:border min-h-screen md:border-t-0 md:border-b-0 md:border-dotted p-[5%] flex flex-col gap-8">
-          {children}
-        </div>
-      </main>
-      <Analytics />
-    </div>
+    <html lang="en" className={`${inter.variable} font-sans`}>
+      <body className="antialiased tracking-tight mb-24">
+        {children}
+        <Analytics />
+      </body>
+    </html>
   );
 }
