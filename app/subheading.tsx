@@ -11,8 +11,8 @@ export default function Subheading({
   return (
     <h2
       className={cn(
-        "border-foreground/40 border px-3 py-1 rounded-full inline-block font-mono uppercase text-xs tracking-wider font-extralight text-foreground/80",
-        className
+        "border-foreground/40 border px-3 py-1 rounded-full inline-block font-mono uppercase text-xs tracking-wider font-extralight text-foreground/80 w-fit",
+        className,
       )}
     >
       {children}

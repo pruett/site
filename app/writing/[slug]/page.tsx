@@ -1,4 +1,4 @@
-import { getBlogPostMetadata } from "@/app/(writing)/writing/_lib/getBlogPostData";
+import { getBlogPostMetadata } from "@/app/writing/_lib/getBlogPostData";
 import type { Metadata } from "next/types";
 import dynamic from "next/dynamic";
 

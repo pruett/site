@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { promises as fs } from "fs";
-import { getBlogPostMetadata } from "@/app/(writing)/writing/_lib/getBlogPostData";
+import { getBlogPostMetadata } from "@/app/writing/_lib/getBlogPostData";
 import Subheading from "@/app/subheading";
 
 export default async function Page() {
@@ -10,7 +10,7 @@ export default async function Page() {
     writingsDir.map((writing) => {
       const slug = writing.replace(/\.mdx$/, "");
       return getBlogPostMetadata(slug);
-    })
+    }),
   );
 
   const allWritings = await writingsWithMetadataPromises;
@@ -20,8 +20,8 @@ export default async function Page() {
   });
 
   return (
-    <div>
-      <Subheading className="mb-8">Writings</Subheading>
+    <>
+      <Subheading>Writings</Subheading>
       <ul className="flex flex-col gap-8">
         {sortedWritings.map((writing) => (
           <li key={writing.slug} className="flex flex-col gap-2">
@@ -46,6 +46,6 @@ export default async function Page() {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 }

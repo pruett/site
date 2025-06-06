@@ -5,14 +5,15 @@ import Link from "next/link";
 const bullets = [
   "Prioritize simplicity and usability in software design",
   "Focus on creating real-world impact through thoughtful solutions",
-  "Combine user-centered design with technical expertise",
   "Emphasize collaboration and clarity in the development process",
   "Strive for interfaces that are intuitive, functional, and visually elegant",
+  "Use the right tools for the job – nothing more",
+  "Consistent incremental improvement that compounds over time",
 ];
 
 export default function Page() {
   return (
-    <>
+    <div className="container mx-auto md:border min-h-screen md:border-t-0 md:border-b-0 md:border-dotted p-[5%] flex flex-col gap-8">
       <Image
         src="/pro.jpeg"
         alt="profile picture of kevin pruett"
@@ -47,7 +48,7 @@ export default function Page() {
           ))}
         </ul>
       </Section>
-    </>
+    </div>
   );
 }
 
